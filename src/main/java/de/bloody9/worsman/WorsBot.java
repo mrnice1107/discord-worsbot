@@ -4,10 +4,10 @@ import de.bloody9.core.Bot;
 import de.bloody9.core.models.interfaces.BotCommand;
 import de.bloody9.core.models.interfaces.ConfigUpdater;
 import de.bloody9.core.models.objects.BotInitObject;
+import de.bloody9.feature.joinrole.JoinRoleFeature;
 import de.bloody9.worsman.commands.FactCommand;
 import de.bloody9.worsman.features.guildfact.GuildFactUpdater;
 import de.bloody9.worsman.features.guildfact.GuildFacts;
-import de.bloody9.worsman.features.joinrole.JoinRoleFeature;
 import net.dv8tion.jda.api.entities.Activity;
 
 import java.util.ArrayList;
