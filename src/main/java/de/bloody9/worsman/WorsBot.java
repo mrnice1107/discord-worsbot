@@ -2,23 +2,16 @@ package de.bloody9.worsman;
 
 import de.bloody9.core.Bot;
 import de.bloody9.core.models.interfaces.BotCommand;
-import de.bloody9.core.models.interfaces.ConfigUpdater;
 import de.bloody9.core.models.objects.BotInitObject;
+import de.bloody9.feature.guildfact.GuildFactFeature;
 import de.bloody9.feature.joinrole.JoinRoleFeature;
-import de.bloody9.worsman.commands.FactCommand;
-import de.bloody9.worsman.features.guildfact.GuildFactUpdater;
-import de.bloody9.worsman.features.guildfact.GuildFacts;
 import net.dv8tion.jda.api.entities.Activity;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class WorsBot extends Bot {
 
     public static WorsBot INSTANCE;
-
-    private List<GuildFacts> guildFactsList;
 
     public WorsBot(String[] args) {
         this(enterArgs(args));
@@ -32,7 +25,6 @@ public class WorsBot extends Bot {
     public void preInit(BotInitObject initObject) {
         super.preInit(initObject);
         INSTANCE = this;
-        guildFactsList = new ArrayList<>();
     }
 
     @Override
@@ -45,26 +37,12 @@ public class WorsBot extends Bot {
     @Override
     public void addBotCommands(HashMap<String, BotCommand> commands) {
         super.addBotCommands(commands);
-        commands.put("fact", new FactCommand());
-    }
-
-    @Override
-    public void addConfigUpdater(List<ConfigUpdater> updater) {
-        super.addConfigUpdater(updater);
-        updater.add(new GuildFactUpdater());
     }
 
     @Override
     public void addFeatures() {
         super.addFeatures();
         features.add(new JoinRoleFeature());
-    }
-
-    public void addGuildFacts(GuildFacts guildFacts) {
-        guildFactsList.add(guildFacts);
-    }
-
-    public List<GuildFacts> getGuildFactsList() {
-        return guildFactsList;
+        features.add(new GuildFactFeature());
     }
 }
