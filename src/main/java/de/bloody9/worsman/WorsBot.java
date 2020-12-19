@@ -1,13 +1,10 @@
 package de.bloody9.worsman;
 
 import de.bloody9.core.Bot;
-import de.bloody9.core.models.interfaces.BotCommand;
 import de.bloody9.core.models.objects.BotInitObject;
 import de.bloody9.feature.guildfact.GuildFactFeature;
 import de.bloody9.feature.joinrole.JoinRoleFeature;
 import net.dv8tion.jda.api.entities.Activity;
-
-import java.util.HashMap;
 
 public class WorsBot extends Bot {
 
@@ -32,11 +29,6 @@ public class WorsBot extends Bot {
         super.afterInit(initObject);
         setActivity(Activity.watching("worsman's videos"));
         getCommandManager().setDeleteMessages(false);
-    }
-
-    @Override
-    public void addBotCommands(HashMap<String, BotCommand> commands) {
-        super.addBotCommands(commands);
     }
 
     @Override
